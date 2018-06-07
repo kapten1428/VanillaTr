@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6S</title>
+</head>
+<body>
+    <script>
+    //Function Example
+    function ageRetirement(year){
+        let currentAge = new Date().getFullYear() - year;
+        return [currentAge, 65-currentAge];
+    }
+    const [yourAge, retirementAge] = ageRetirement(1993);
+    console.log(yourAge);
+    console.log(retirementAge);
+    //----Name-----
+    const car = {
+        name : 'BMW 1428',
+        color: 'Premium Black',
+        year: 2018
+    }
+    const{name: type, color:sign, year:number} = car
+    // console.log(type + ' with ' + sign + ' production in ' + number);
+    
+    //------BASIC------
+    //Object
+    const jessieObj = {
+        firstName : 'Jessie',
+        jessieAge: 17
+    }
+    const{firstName, jessieAge} = jessieObj;
+    // console.log('Hi ' + firstName);
+
+    //------BASIC------
+    //Array
+    const array = [1,2,3];
+    const[a,b,c] = array;
+    // console.log(a,b,c);
+    
+    const[name, age] = ['John', 25];
+    // console.log('my name is ' + name + ', I\'m ' + age + ' years old');
+    </script>
+</body>
+</html>
