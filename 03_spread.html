@@ -1,30 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>ES6</title>
+    <style>
+        .box {
+            width: 200px;
+            padding: 60px;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 50px;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: dodgerblue;
+        }
+
+        .orange {
+            background-color: orangered;
+        }
+    </style>
 </head>
+
 <body>
+    <h1>Section 7: Get Ready for the Future: ES6 / ES2015</h1>
+
+    <div class="box green">I'm green!</div>
+    <div class="box blue">I'm blue!</div>
+    <div class="box orange">I'm orange!</div>
     <script>
 
-        //KS 
-        function buz(x){
+        //JONAS_S rest operator
+        //Limit full age is = 18;
+        function isFullAge2(limit, ...years){
+            years.forEach(year => console.log((2018 - year) >= limit));
+        }
+        isFullAge2(18, 1990, 2000, 1989, 1994, 2003, 2016);
+
+        function isFullAge(...years){
+            Array.from(years).forEach(year => console.log((2018 - year) >= 25) )
+        }
+        //isFullAge(1990, 1996, 1965);
+
+        //JONAS_S spread operator
+        var h = document.querySelector('h1');
+        var boxes = document.querySelectorAll('.box');
+        
+        const all = [h, ...boxes];
+        // console.log(all);
+        Array.from(all).forEach(cur => cur.style.color = '#ccc');
+
+        function addFourAge(a, b, c, d) {
+            return a + b + c + d
+        }
+        var sum1 = addFourAge(18, 30, 12, 21);
+        // console.log(sum1);
+
+        //ES5
+        var num_ages = [18, 30, 12, 21]
+        var sum2 = addFourAge.apply(null, num_ages);
+        console.log(sum2);
+
+        //ES6
+        var sum3 = addFourAge(...num_ages);
+        console.log(sum3);
+
+        //KS Quiz
+        function doo(x, y, z, ...rest) {
+            return [x, ...rest];
+        }
+
+        function dar() {
+            var a1 = [2, 4];
+            var a2 = [6, 8, 10, 12];
+
+            return doo(...a1, ...a2);
+        }
+        // console.log(
+        //     dar().join("") === "281012"
+        // )
+
+        //KS "Gather" || "Spread" Operator
+        var str = "Hello";
+        // console.log(...str);
+
+        function boz(x, y, ...rest) {
+            return rest
+            // console.log(rest);
+        }
+        var x = [1, 2, 3];
+        var y = [4, 5];
+        // console.log(boz(...x,...y));
+
+
+
+        var i = [1, 2, 3];
+        var j = [4, 5];
+        var k = [0].concat(i, j, [6]);
+        //console.log(k); // [0, 1, 2, 3, 4, 5, 6]
+
+        var l = [0, ...i, ...j, 6];
+        //console.log(l); //[0, 1, 2, 3, 4, 5, 6]
+
+        function bug(arg, ...args) {
+            console.log(arg, ...args);
+        }
+        function big(...args) {
+            bug(42, ...args);
+        }
+        // big(1,2,3);
+
+        //KS Lazy Expression
+        function required(paraName) {
+            throw "Parameter '" + paraName + "'required"
+        }
+        function fin(id = required("id")) { }
+        // fin(12);
+
+        function uniqId() {
+            console.log(" ! ")
+        }
+        function fun(x = uniqId()) { }
+        // fun(); //!
+
+        //KS Default Value
+        function biz(x = 42) {
+            console.log(x);
+        }
+        // biz(); //42
+        // biz(10) //10
+        // biz.apply(null,[]) //42
+
+
+        function buz(x) {
             x = (x !== 'undefined') ? x : 42;
             console.log(x);
         }
-        buz(0);
+        // buz(0);
         //
-        function arguments(...args){
+        function arguments(...args) {
             console.log(args)
         }
         //
         // arguments(1,2,3,4,5)
-        function foo(x,y,...z){
+        function foo(x, y, ...z) {
             // console.log(x,y,z)
         }
         // foo(1,2,3,4,5);
     </script>
 </body>
+
 </html>
