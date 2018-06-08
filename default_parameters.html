@@ -7,6 +7,34 @@
 </head>
 <body>
     <script>
+
+        //Jonas_S Default Parameters
+        //ES6
+        function sherlockFamily(familyName, occupation, address = '221B'){
+            this.familyName = familyName;
+            this.occupation = occupation;
+            this.address = address;
+        }
+
+        var sherlock = new sherlockFamily('Futaba', 'Consultan Detective');
+        var wato = new sherlockFamily('Tachibana', 'Sherlock righthand');
+        
+        //ES5
+        function smithFamily(firstName, yearOfBirth, lastName, nationality){
+            
+            //define the value
+            lastName === undefined ? lastName = 'Smith' : lastName = lastName;
+            nationality === undefined ? nationality = 'Germany' : nationality = nationality;
+
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.yearOfBirth = yearOfBirth;
+            this.nationality = nationality;
+        }
+        var john = new smithFamily('Smith', 1990);
+        var emily = new smithFamily('Emily', 'Diaz', 1995,'Spanish');
+
+        //KS Book
         function bar(val){
             console.log('bar is called !');
             return y + val;
@@ -15,7 +43,7 @@
             console.log(x, z);
         }
         var y = 5;
-        foo() // bar is called, //8 13
+        //foo() // bar is called, //8 13
     </script>
 </body>
 </html>
