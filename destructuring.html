@@ -7,14 +7,153 @@
 </head>
 <body>
     <script>
+    //KS Destructuring function parameters
+    
+    //destructuring function parameters
+    function g_bar({g_a, g_b, g_c} = {}){
+        console.log(g_a, g_b, g_c)
+    }
+    function g_foo([a, b, c]){
+        console.log(a, b, c)
+    }
+    //g_foo(1,2,3) //undefined
+    // g_foo([1, 2, 3]); // 1, 2, 3
+    g_bar({
+        g_a: 1,
+        g_b: 2,
+        g_c: 3
+    });
+    
+
+    //KS Destrucuring nested object
+    function nestObj(){
+        return {f_a:1, f_b:2, f_c:3 , 
+                    f_d: {
+                        f_e: 4
+                    }
+                }
+    }
+
+    var {
+        f_a,
+        f_b: x = 10,
+        f_c,
+        f_d:{
+            f_e
+        } = {}
+    } = nestObj() || {}
+
+    //console.log(f_d); //{f_e:4}
+    //console.log(f_e); // 4
+
+
+    //KS Destructuring Object
+    function objFoo(){
+        return { e_a:1, e_b:2, e_c:3}
+    }
+    var{
+        e_a,
+        e_b: x = 10,
+        e_c = 3,
+        e_d
+    } = objFoo() || {} ;
+    
+    //console.log(e_a); //1
+    //console.log(e_c); //3
+    //console.log(x);
+    //console.log(e_d);
+
+    //KS Nested Array Destructuring
+    function nestedArr(){
+        return [1, 2, 3, [4, 5, 6]]
+    }
+    
+    //
+    var d_a, d_b, d_c, d_d;
+    var[
+        ,,,
+        [d_c, d_d]
+    ]
+    = [
+        d_a,
+        d_b,
+        ...args
+    ] = nestedArr()
+    
+    //console.log(d_c); //4
+    //console.log(d_d); //5
+    
+    //
+    var d1, d2, d3, argsd,d_x;
+    [
+        d1,
+        d2,
+        d3,
+        [
+            e1,
+            ,
+            e3
+        ]
+    ] = nestedArr() || [];
+
+    d_x = [d1, d2] = nestedArr();
+
+    //console.log(e1) //4
+    //console.log(e3) //6
+    //console.log(d_x);
+
+    //KS Dumping Variables
+    var d1 = [1, 2, 3];
+    var d2, d3;
+
+    [d2, d3] = [0, ...d1, 4];
+    // console.log(d2);
+
+    //KS Destructuring and ... OPERATOR
+    function big(){
+        return [2, 43, 3, 4, 9, 10, 32, 23]
+    }
+    var c1, c2, c3, args;
+    [
+        c1,
+        c2,
+        c3,
+        ...args
+    ] = big() || [];
+
+    // console.log(...args);
+
+    //KS Destructuring and Default Value
+    function buz(){
+        return [1, , 3]
+    }
+    var b1,b2,b3;
+    [ 
+        b1,
+        b2 = 2,
+        b3
+    ] = buz();
+
+    // console.log(b1,b2,b3);
+
+    //KS Destructuring Array
+    function biz(){
+        return [1, 2, 3]
+    }
+    const [a1, a2, a3, a4] = biz();
+    // console.log('a1 = ' + a1);
+    // console.log('a2 = ' + a2);
+    
+
     //Function Example
     function ageRetirement(year){
         let currentAge = new Date().getFullYear() - year;
         return [currentAge, 65-currentAge];
     }
     const [yourAge, retirementAge] = ageRetirement(1993);
-    console.log(yourAge);
-    console.log(retirementAge);
+    // console.log(yourAge);
+    // console.log(retirementAge);
+    
     //----Name-----
     const car = {
         name : 'BMW 1428',
