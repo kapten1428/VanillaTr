@@ -7,6 +7,45 @@
 </head>
 <body>
     <script>
+    //KYLE_S QUIZ
+    function upper(strings, ...values){
+      var str = "";
+      for(var i=0; i < strings.length; i++){
+          if(i > 0) str += values[i-1].toUpperCase();
+          str += strings[i];
+      }
+      return str;
+    }
+
+    var e_name = "kyle",
+        e_twitter = "getify",
+        e_classname = "es6 workshop"
+
+    //output : Hello KYLE (@GETIFY), welcome to the ES6 WORKS
+
+    var e_msg = upper`Hello ${e_name} (@${e_twitter}), welcome to the ${e_classname}`;
+    console.log(e_msg);
+    
+    //KYLE_S Template String
+    var d_name = "Kyle";
+    var d_orderNumber = "123";
+    var d_total = 319.7
+
+    //use escape "\" to inline
+    var d_msg2 = `Hello, ${d_name}, \
+    your order (#${d_orderNumber}) was $${d_total}`;
+    
+    //template string allow you to multiline
+    var d_msg1 = 
+    `Hello, ${d_name},
+    your order (#${d_orderNumber}) was $${d_total}`;
+
+    //inline style
+    var d_msg = `Hello, ${d_name}, your order (#${d_orderNumber}) was $${d_total}`;
+    //console.log(d_msg);
+    //console.log(d_msg1);
+    //console.log(d_msg2);
+    
     //JONES_S
     let c_firstName = 'John';
     let c_lastName = 'Smith';
@@ -16,15 +55,16 @@
         return 2018 - year;
     }
 
-    console.log(
-        `This is ${c_firstName} ${c_lastName}. He was born in ${c_yearOfBirth}. Today, he is  ${c_calcAge(c_yearOfBirth)} years old`
-    )
+    // console.log(
+        // console.l2g(
+    //     `This is ${c_firstName} ${c_lastName}. He was born in ${c_yearOfBirth}. Today, he is  ${c_calcAge(c_yearOfBirth)} years old`
+    // )
 
     const smithName = `${c_firstName} ${c_lastName}`;
-    console.log(smithName.startsWith('J')); //true
-    console.log(smithName.endsWith('th')); //true;
-    console.log(smithName.includes('to')); //false;
-    console.log(c_firstName.repeat(5)); //JohnJohnJohnJohn
+    //console.log(smithName.startsWith('J')); //true
+    //console.log(smithName.endsWith('th')); //true;
+    //console.log(smithName.includes('to')); //false;
+    //console.log(c_firstName.repeat(5)); //JohnJohnJohnJohn
 
     //KS BOOKS
     //RAW STRINGS
@@ -36,6 +76,16 @@
     //showraw`Hello\nWolrd`;
 
     //TAGGED TEMPLATE LITERAS
+    function b_biz(strings, ...val){
+       var str = "";
+       for(var i = 0; i < strings.length; i++){
+           if(i > 0) str += val[i-1];
+            str += strings[i];
+       }
+       return str;
+    }
+    var b_msg = b_biz`Hello, ${d_name}, your order (#${d_orderNumber}) was $${d_total}`;
+
     function b_bar(){
         return function(string, ...value){
             console.log(string);
