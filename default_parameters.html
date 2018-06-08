@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <script>
+        function bar(val){
+            console.log('bar is called !');
+            return y + val;
+        }
+        function foo(x = y + 3, z = bar(x)){
+            console.log(x, z);
+        }
+        var y = 5;
+        foo() // bar is called, //8 13
+    </script>
+</body>
+</html>
