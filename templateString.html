@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6S</title>
+</head>
+<body>
+    <script>
+    //JONES_S
+    let c_firstName = 'John';
+    let c_lastName = 'Smith';
+    const c_yearOfBirth = 1990;
+
+    function c_calcAge(year){
+        return 2018 - year;
+    }
+
+    console.log(
+        `This is ${c_firstName} ${c_lastName}. He was born in ${c_yearOfBirth}. Today, he is  ${c_calcAge(c_yearOfBirth)} years old`
+    )
+
+    const smithName = `${c_firstName} ${c_lastName}`;
+    console.log(smithName.startsWith('J')); //true
+    console.log(smithName.endsWith('th')); //true;
+    console.log(smithName.includes('to')); //false;
+    console.log(c_firstName.repeat(5)); //JohnJohnJohnJohn
+
+    //KS BOOKS
+    //RAW STRINGS
+    function showraw(string, ...value){
+        console.log(string);
+        console.log(string.raw);
+    }
+
+    //showraw`Hello\nWolrd`;
+
+    //TAGGED TEMPLATE LITERAS
+    function b_bar(){
+        return function(string, ...value){
+            console.log(string);
+            console.log(value)
+        }
+    }
+    var b_desc = 'great';
+    //b_bar()`everything is ${b_desc} !`;
+
+    /*=====================================*/
+    function b_foo(string, ...value){
+        console.log(string);
+        console.log(value);
+    }
+    var desc = "awesome"
+    
+    //b_foo`everytying is, ${desc} !`;
+
+    //KS BOOKS BASIC
+    function a_toUpperCase(words){
+        return words.toUpperCase();
+    }
+
+    var readers = "readers";
+    var text = `Hello ${a_toUpperCase("kapten")}. Your ${a_toUpperCase(`${readers}`)} are amazing !`;
+    //console.log(text);
+
+    var firstName = 'Kapten';
+    var idMember = `hello ${firstName} your're the best !`
+    //console.log(idMember);
+
+    </script>
+</body>
+</html>
