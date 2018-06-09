@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ES6 Arrow Function</title>
+</head>
+<body>
+    <script>
+        //E.G CASE 1
+        const years = [1990, 1965, 1982, 1937];
+        let d_age = years.map(year => 2016 - year); //[26, 51, 34, 79]
+        
+        d_age = years.map((year, index) => `Age element ${index+1} is ${2018 - year}`);
+        
+        d_age = years.map((year, index) => {
+            const now = new Date().getFullYear();
+            const age = now - year;
+            return `Age element ${index+1} is ${age}`
+        })
+        console.log(d_age);
+        
+
+        //SCOPE PROBLEM
+        var c_obj = {
+            id: 42,
+            foo: function foo(){
+                setTimeout(() => {
+                    console.log(this.id)
+                },2000)
+            }
+        }
+        //c_obj.foo();
+
+        //IFEE STYLE
+        //ES6
+        let b_person_a = ((name) => {
+            return{
+                getName: function(){
+                    return name
+                }
+            }
+        })("Nicholas");
+        b_person_a.getName() //"Nicholas"
+        //ES5
+        let b_person = function(name){
+            return{
+                getName: function(){
+                    return name
+                }
+            }
+        }("Nicholas");
+        b_person.getName();
+        
+        //BASIC VARIATIONS OF ARROW FUNCTION
+
+        const a_obj = id => ({ id: id, name: "Temp"});
+        a_obj(id = 12) //{id: 12, name: "Temp"}
+
+        const a_foo = () => 12; // 12
+        
+        const a_bar = x => x * 12;
+        a_bar(12) //144
+
+        var a_baz = (x, y) => {
+            var z = x * 2 + y;
+            y++;
+            x *= 3;
+            return (x + y + z) / 2;
+        }
+        a_baz(5, 10) //23
+    
+        
+
+    </script>
+</body>
+</html>

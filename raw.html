@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ES6S</title>
+    <title>ES6</title>
 </head>
 <body>
+    <script>
+    //INTRODUCTION
+    //arrow function variations
+    const fn_a = () => 12; //
     
+    const fn_b = x => x * 12 
+    fn_b(12)
+    console.log(fn_b(12)); //144
+
+    //if there are more than one statement use {.....}
+    const fb_c = (x, y) => {
+        var z = x * 2 + y;
+        y++;
+        x *= 3;
+        return (x + y + z) / 2;
+    }
+    fb_c(5, 10);
+    console.log(fb_c(5, 10)); //23
+    
+    
+    </script>
 </body>
 </html>
