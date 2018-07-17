@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modules</title>
+</head>
+<body>
+    <script>
+        //IFEE function
+        var b_me = function b_Hello(name){
+            function b_greeting(){
+                console.log("Hello " + name + " ! ")
+            }
+            //public API
+            return{
+                b_greeting : b_greeting
+            }
+        }("Simpson");
+        b_me.b_greeting(); // Hello Simpson !
+        
+        //TRADITIONAL function 
+        function a_Hello(name){
+            function a_greeting(){
+                console.log("Hello " + name + " ! ");
+            }
+            return{
+                a_greeting : a_greeting
+            }
+        }
+        var a_me = a_Hello("Kyle");
+        // a_me.a_greeting(); // Hello Simpson !
+
+    </script>
+</body>
+</html>

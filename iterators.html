@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ITERATORS</title>
+</head>
+<body>
+    <script>
+    //Iterator in array string
+    var e_o = {};
+    for(e_o.a of ["Apple", "Banana", "Cherry"]){
+        console.log(e_o.a);//Apple Banana Cherry
+        console.log(typeof e_o.a);//string
+    }
+    //Iterator in object array
+    var d_o = {};
+    for(d_o.a of [1, 2, 3]){
+        console.log(d_o.a);// 1 2 3
+        console.log(typeof d_o.a); //number
+    }
+
+    //string primitive
+    for (var c of "hello"){
+        // console.log(c); h/e/l/l/o
+    }
+    //for ... of ..., return value
+    const b_foo = ['BMW', 'Porche', 'Lambo', 'Jaguar', 'Ferary'];
+    for ( var b_value of b_foo){
+        //console.log(b_value); 
+    }
+    //for ... in ... , return index
+    const a_foo = ['apple', 'banana', 'cherry', 'duku'];
+    for(var idx_foo in a_foo){
+        //console.log(idx_foo);
+    }
+    </script>
+</body>
+</html>
+

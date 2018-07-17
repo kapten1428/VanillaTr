@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SYMBOLS</title>
+</head>
+
+<body>
+    <script>
+        //Symbols began as a way to create private object members, a feature JavaScript developers wanted for a long time. Before symbols, any property with a string name was easy to access regardless of the obscurity of the name, and the “private names” feature was meant to let developers create non-string property names. That way, normal techniques for detecting these private names wouldn’t work. Nicholas Zakas
+        //
+        
+        //Kyle_S Symbol 
+        let g_x = Symbol();
+        var g_obj = {
+            id: 43
+        }
+        
+        g_obj[g_x] = "sshhhhhh this is secret !";
+        g_obj; //{id: 43, Symbol(): "sshhhhhh this is secret !"}
+
+        Object.keys(g_obj); //["id"] >
+        
+        //Nicholas_Z Sharing Symbol III
+        let f_uid = Symbol.for('uid');
+        let f_uid1 = Symbol.for('uid');
+        let f_uid2 = Symbol('uid');
+
+        if(Symbol.keyFor(f_uid1) === Symbol.keyFor(f_uid)){
+            //console.log('The key is uid');
+        }
+        //console.log(Symbol.keyFor(f_uid2)); // undefine
+
+
+        //Nicholas_Z Sharing Symbol II
+        let e_uid = Symbol.for('e_uid');
+        let e_object = {
+            [e_uid] : '12345'
+        }
+
+        let e_uid1 = Symbol.for('e_uid');
+        //console.log(e_uid === e_uid1); //true;
+        
+        //Nicholas_Z Sharing Symbol I
+        let d_uid = Symbol.for('d_uid');
+        let d_object = {};
+
+        d_object[d_uid] = '12345';
+        //console.log(d_object[d_uid]);
+
+        //Nicholas_Z Creating Symbol
+        let c_firstName = Symbol('first name');
+        let c_person = {
+            [c_firstName]: "Nicholas"
+        };
+
+        Object.defineProperty(c_person, c_firstName, {
+            writable: false
+        })
+
+        let c_lastName = Symbol('last name');
+        Object.defineProperties(c_person, {
+            [c_lastName]: {
+                value: 'Zakas',
+                writable: false
+            }
+        })
+
+        //console.log(c_person[c_firstName] = 'test'); //test
+        //console.log(c_person[c_firstName]) //Nicholas
+        //console.log(c_person[c_lastName]); //Zacas
+
+        //use symbol description for debugging purpose
+        let b_firstName = Symbol("first name");
+        let b_person = {};
+
+        b_person[b_firstName] = "Nicholas"
+        //console.log("first name" in b_person); //false
+        //console.log(b_person[b_firstName]); //nicholas
+        //console.log(b_firstName); //Symbol(first namex`)
+
+        //Create Symbol
+        let a_firstName = Symbol();
+        a_person = {};
+
+        a_person[a_firstName] = "Nicholas";
+        //console.log(a_person[a_firstName]);
+
+
+    </script>
+</body>
+
+</html>
